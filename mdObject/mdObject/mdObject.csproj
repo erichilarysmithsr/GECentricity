@@ -71,6 +71,7 @@
     <TypeScriptCompile Include="scripts\%24mdObject.Patient.ts" />
     <TypeScriptCompile Include="scripts\%24mdObject.Phone.ts" />
     <TypeScriptCompile Include="scripts\%24mdObject.ObjectBase.ts" />
+    <TypeScriptCompile Include="scripts\%24mdObject.License.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-cookies.d.ts" />
@@ -112,7 +113,7 @@
     <TypeScriptOutDir />
     <TypeScriptGeneratesDeclarations>True</TypeScriptGeneratesDeclarations>
     <TypeScriptNoEmitOnError>False</TypeScriptNoEmitOnError>
-    <TypeScriptSourceMap>True</TypeScriptSourceMap>
+    <TypeScriptSourceMap>False</TypeScriptSourceMap>
     <TypeScriptMapRoot />
     <TypeScriptSourceRoot />
   </PropertyGroup>
