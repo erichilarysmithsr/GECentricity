@@ -72,6 +72,7 @@
     <TypeScriptCompile Include="scripts\%24mdObject.Phone.ts" />
     <TypeScriptCompile Include="scripts\%24mdObject.ObjectBase.ts" />
     <TypeScriptCompile Include="scripts\%24mdObject.License.ts" />
+    <TypeScriptCompile Include="scripts\%24mdObject.Address.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-animate.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-component-router.d.ts" />
     <TypeScriptCompile Include="scripts\typings\angularjs\angular-cookies.d.ts" />

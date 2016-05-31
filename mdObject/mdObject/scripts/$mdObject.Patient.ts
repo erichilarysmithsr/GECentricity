@@ -1,4 +1,5 @@
 ﻿/// <reference path="$mdobject.objectbase.ts" />
+/// <reference path="$mdobject.address.ts" />
 /// <reference path="$mdobject.phone.ts" />
 namespace $mdObject {
     export interface IPatient {
@@ -26,8 +27,8 @@ namespace $mdObject {
         namePrefix: string;
         /** Name Suffix */
         nameSuffix: string;
-        ///** Represent patient address object */
-        //address: {};
+        /** Represent patient address object */
+        address: IAddress;
         /** Patient’s sex. */
         sex: string;
         /** Patient’s race */
@@ -103,6 +104,7 @@ namespace $mdObject {
         private _employmentStatus: string;
         private _clinicStatus: string;
         private _phone: IPhone;
+        private _address: IAddress;
 
 
         public get patientId(): string {
@@ -191,6 +193,10 @@ namespace $mdObject {
 
         public get phone(): IPhone {
             return this._phone = (this._phone !== undefined) ? this._phone : new Phone();
+        }
+
+        public get address(): IAddress {
+            return this._address = (this._address !== undefined) ? this._address : new Address();
         }
     }
 

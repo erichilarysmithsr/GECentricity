@@ -119,6 +119,55 @@ describe('$mdObject.patient.phone tests', () => {
     mock.verify(x => x.melFunc(typemoq.It.isValue('{PATIENT.CELLPHONE}')), typemoq.Times.exactly(1));
 });
 
+describe('$mdObject.patient.address tests', () => {
+
+    // Create Mock object for MEL
+    let mock: TypeMoq.Mock<$mdObject.IMel> = createMelMock();
+
+    let elementAddress1 = eval('$mdObject.patient.address.address1');
+    it('Address1 assigned', () => expect(elementAddress1).toEqual('{PATIENT.ADDRESS1}'));
+
+    let elementAddress2 = eval('$mdObject.patient.address.address2');
+    it('Address2 assigned', () => expect(elementAddress2).toEqual('{PATIENT.ADDRESS2}'));
+
+    let elementCity = eval('$mdObject.patient.address.city');
+    it('City assigned', () => expect(elementCity).toEqual('{PATIENT.CITY}'));
+
+    let elementState = eval('$mdObject.patient.address.state');
+    it('State assigned', () => expect(elementState).toEqual('{PATIENT.STATE}'));
+
+    let elementPostCode = eval('$mdObject.patient.address.postCode');
+    it('postCode assigned', () => expect(elementPostCode).toEqual('{PATIENT.ZIP}'));
+
+    let elementcountry = eval('$mdObject.patient.address.country');
+    it('country assigned', () => expect(elementcountry).toEqual('{PATIENT.COUNTRY}'));
+
+    elementAddress1 = eval('$mdObject.patient.address.address1');
+    it('second call to Address1 assigned', () => expect(elementAddress1).toEqual('{PATIENT.ADDRESS1}'));
+
+    elementAddress2 = eval('$mdObject.patient.address.address2');
+    it('second call to Address2 assigned', () => expect(elementAddress2).toEqual('{PATIENT.ADDRESS2}'));
+
+    elementCity = eval('$mdObject.patient.address.city');
+    it('second call to City assigned', () => expect(elementCity).toEqual('{PATIENT.CITY}'));
+
+    elementState = eval('$mdObject.patient.address.state');
+    it('second call to State assigned', () => expect(elementState).toEqual('{PATIENT.STATE}'));
+
+    elementPostCode = eval('$mdObject.patient.address.postCode');
+    it('second call to postCode assigned', () => expect(elementPostCode).toEqual('{PATIENT.ZIP}'));
+
+    elementcountry = eval('$mdObject.patient.address.country');
+    it('second call to country assigned', () => expect(elementcountry).toEqual('{PATIENT.COUNTRY}'));
+
+    mock.verify(x => x.melFunc(typemoq.It.isValue('{PATIENT.ADDRESS1}')), typemoq.Times.exactly(1));
+    mock.verify(x => x.melFunc(typemoq.It.isValue('{PATIENT.ADDRESS2}')), typemoq.Times.exactly(1));
+    mock.verify(x => x.melFunc(typemoq.It.isValue('{PATIENT.CITY}')), typemoq.Times.exactly(1));
+    mock.verify(x => x.melFunc(typemoq.It.isValue('{PATIENT.STATE}')), typemoq.Times.exactly(1));
+    mock.verify(x => x.melFunc(typemoq.It.isValue('{PATIENT.ZIP}')), typemoq.Times.exactly(1));
+    mock.verify(x => x.melFunc(typemoq.It.isValue('{PATIENT.COUNTRY}')), typemoq.Times.exactly(1));
+});
+
 function validatePatientStringGetProperty(propertyName: string, data: string) {
     // Create Mock object for MEL
     let mock: TypeMoq.Mock<$mdObject.IMel> = createMelMock();
