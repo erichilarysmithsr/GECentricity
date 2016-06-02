@@ -30,6 +30,7 @@ gulp.task('moveToLibs', function (done) {
             'scripts/$mdObject.mel.js',
             'scripts/$mdObject.address.js',
             'scripts/$mdObject.phone.js',
+            'scripts/$mdObject.immunization.js',
             'scripts/$mdObject.patient.js',
     ])
     .pipe(sourcemaps.init())
@@ -52,6 +53,7 @@ gulp.task('compile', function () {
             'scripts/$mdObject.mel.ts',
             'scripts/$mdObject.address.ts',
             'scripts/$mdObject.phone.ts',
+            'scripts/$mdObject.immunization.ts',
             'scripts/$mdObject.patient.ts',
     ])
        .pipe(sourcemaps.init()) // This means sourcemaps will be generated 
