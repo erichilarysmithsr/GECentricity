@@ -76,8 +76,8 @@ namespace $mdObject {
         //appointments: {};
         ///** List of patient insurances  */
         //insurances: {};
-        ///** List of patient immunizations  */
-        //immunizations: {};
+        /** List of patient immunizations  */
+        immunizations: IImmunization[];
         //carePlans: {};
     }
     
@@ -105,7 +105,8 @@ namespace $mdObject {
         private _clinicStatus: string;
         private _phone: IPhone;
         private _address: IAddress;
-
+        private _immunizationsString: string;
+        private _immunizations: IImmunization[];
 
         public get patientId(): string {
             return this._patientId = this.getPatientProperty(this._patientId, '{PATIENT.PATIENTID}');
@@ -197,6 +198,30 @@ namespace $mdObject {
 
         public get address(): IAddress {
             return this._address = (this._address !== undefined) ? this._address : new Address();
+        }
+
+        public get immunizations(): IImmunization[] {
+
+            this._immunizationsString = this.getPatientProperty(this._immunizations, '{IMMUN_GETLIST()}');
+            if (this._immunizations === undefined) {
+
+
+                let data:string[] = this.InternalString(this._immunizationsString).toList();
+
+                /*jslint plusplus: true */
+                for (let index: number = 0; index < data.length; index++) {
+                    this._immunizations[index] = new Immunization(data[index]);
+                }
+
+                //this._immunizations.tag = function () {
+                //    return 'IMMUN_GETLIST';
+                //} ();
+
+                //this._immunizations.toMelString = function () {
+                //    return this._immunizationsString;
+                //};
+            }
+            return this._immunizations;
         }
     }
 
