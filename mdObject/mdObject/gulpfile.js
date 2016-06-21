@@ -25,13 +25,13 @@ gulp.task('moveToLibs', function (done) {
     ]).pipe(gulp.dest('./libs/'));
 
     gulp.src([
-            'scripts/$mdObject.License.js',
-            'scripts/$mdObject.ObjectBase.js',
-            'scripts/$mdObject.mel.js',
-            'scripts/$mdObject.address.js',
-            'scripts/$mdObject.phone.js',
-            'scripts/$mdObject.immunization.js',
-            'scripts/$mdObject.patient.js',
+            'libs/src/js/scripts/$mdObject.License.js',
+            'libs/src/js/scripts/$mdObject.ObjectBase.js',
+            'libs/src/js/scripts/$mdObject.mel.js',
+            'libs/src/js/scripts/$mdObject.address.js',
+            'libs/src/js/scripts/$mdObject.phone.js',
+            'libs/src/js/scripts/$mdObject.immunization.js',
+            'libs/src/js/scripts/$mdObject.patient.js',
     ])
     .pipe(sourcemaps.init())
     .pipe(concat('$mdObject.js'))
@@ -65,9 +65,9 @@ gulp.task('compile', function () {
 
     return tsResult
        .pipe(concat('./libs/js-library.js')) // You can use other plugins that also support gulp-sourcemaps
-        .pipe(uglify({
-            preserveComments: 'license'
-        }))
+        //.pipe(uglify({
+        //    preserveComments: 'license'
+        //}))
             .pipe(rename({
                 suffix: '.min'
             }))

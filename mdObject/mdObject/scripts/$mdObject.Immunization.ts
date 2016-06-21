@@ -1,5 +1,5 @@
 ﻿/// <reference path="$mdobject.objectbase.ts" />
-namespace $mdObject {
+namespace $mdObject.Interfaces {
     export interface IImmunization {
         immunizationId: string;
         immunizationGroupId: string;
@@ -46,7 +46,9 @@ namespace $mdObject {
         reasonNotGivenMedicalDetail: string;
         save: () => void;
     }
-    export class Immunization extends ObjectBase implements IImmunization {
+}
+namespace $mdObject {
+    export class Immunization extends ObjectBase implements Interfaces.IImmunization {
         private isNew: boolean;
         private _value: string;
 

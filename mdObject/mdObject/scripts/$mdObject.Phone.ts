@@ -1,11 +1,13 @@
 ﻿/// <reference path="$mdobject.objectbase.ts" />
-namespace $mdObject {
+namespace $mdObject.Interfaces {
     export interface IPhone {
         home: string;
         business: string;
         mobile: string;
     }
-    export class Phone extends ObjectBase implements IPhone {
+}
+namespace $mdObject {
+    export class Phone extends ObjectBase implements Interfaces.IPhone {
         private _home: string;
         private _business: string;
         private _mobile: string;

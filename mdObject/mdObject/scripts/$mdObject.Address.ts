@@ -1,5 +1,5 @@
 ﻿/// <reference path="$mdobject.objectbase.ts" />
-namespace $mdObject {
+namespace $mdObject.Interfaces {
     export interface IAddress {
         address1: string;
         address2: string;
@@ -8,8 +8,9 @@ namespace $mdObject {
         postCode: string;
         country: string;
     }
-
-    export class Address extends ObjectBase implements IAddress {
+}
+namespace $mdObject {
+    export class Address extends ObjectBase implements Interfaces.IAddress {
         private _address1: string;
         private _address2: string;
         private _city: string;

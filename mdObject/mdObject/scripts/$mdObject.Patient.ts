@@ -1,7 +1,7 @@
 ﻿/// <reference path="$mdobject.objectbase.ts" />
 /// <reference path="$mdobject.address.ts" />
 /// <reference path="$mdobject.phone.ts" />
-namespace $mdObject {
+namespace $mdObject.Interfaces {
     export interface IPatient {
         /** Returns the patient’s ID number */
         patientId: string;
@@ -80,8 +80,9 @@ namespace $mdObject {
         immunizations: IImmunization[];
         //carePlans: {};
     }
-    
-    class Patient extends ObjectBase implements IPatient {
+}
+namespace $mdObject {
+    class Patient extends ObjectBase implements Interfaces.IPatient {
         private _patientId: string;
         private _pid: string;
         private _medicalRecordId: string;
@@ -103,10 +104,10 @@ namespace $mdObject {
         private _contactBy: string;
         private _employmentStatus: string;
         private _clinicStatus: string;
-        private _phone: IPhone;
-        private _address: IAddress;
+        private _phone: Interfaces.IPhone;
+        private _address: Interfaces.IAddress;
         private _immunizationsString: string;
-        private _immunizations: IImmunization[];
+        private _immunizations: Interfaces.IImmunization[];
 
         public get patientId(): string {
             return this._patientId = this.getPatientProperty(this._patientId, '{PATIENT.PATIENTID}');
@@ -192,15 +193,15 @@ namespace $mdObject {
             return this._clinicStatus = this.getPatientProperty(this._clinicStatus, '{PATIENT.PSTATUS}');
         }
 
-        public get phone(): IPhone {
+        public get phone(): Interfaces.IPhone {
             return this._phone = (this._phone !== undefined) ? this._phone : new Phone();
         }
 
-        public get address(): IAddress {
+        public get address(): Interfaces.IAddress {
             return this._address = (this._address !== undefined) ? this._address : new Address();
         }
 
-        public get immunizations(): IImmunization[] {
+        public get immunizations(): Interfaces.IImmunization[] {
 
             this._immunizationsString = this.getPatientProperty(this._immunizations, '{IMMUN_GETLIST()}');
             if (this._immunizations === undefined) {
@@ -225,5 +226,5 @@ namespace $mdObject {
         }
     }
 
-    export var patient: IPatient = new Patient();
+    export var patient: Interfaces.IPatient = new Patient();
 }

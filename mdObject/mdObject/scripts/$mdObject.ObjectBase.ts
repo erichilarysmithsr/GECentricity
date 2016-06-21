@@ -1,17 +1,17 @@
-﻿namespace $mdObject {
-    export interface IInternalString extends String
-    {
-        toList (seporator?: string): string[];
+﻿namespace $mdObject.Interfaces {
+    export interface IInternalString extends String {
+        toList(seporator?: string): string[];
         startsWith(str: string): boolean;
         endsWith(str: string): boolean;
         tag: string;
         toDate(): Date;
     }
-
+}
+namespace $mdObject {
     export abstract class ObjectBase {
-        private _mel: IMel;
+        private _mel: Interfaces.IMel;
 
-        protected InternalString(a, b?): IInternalString {
+        protected InternalString(a, b?): Interfaces.IInternalString {
             return new StringInternal(a, b);
         }
 
@@ -22,7 +22,7 @@
 
     }
 
-    class StringInternal extends String implements IInternalString {
+    class StringInternal extends String implements Interfaces.IInternalString {
         private _value: string;
         private _tag: string;
 

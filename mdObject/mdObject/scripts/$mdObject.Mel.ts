@@ -1,10 +1,11 @@
-﻿namespace $mdObject {
+﻿namespace $mdObject.Interfaces {
     export interface IMel {
         isActiveXSupported: () => boolean;
         melFunc: (data: string) => any;
     }
-
-    export class Mel implements IMel  {
+}
+namespace $mdObject {
+    export class Mel implements Interfaces.IMel  {
         private static _mel: any;
         private _noMelData: string = 'Data Access Error';
 
@@ -16,11 +17,11 @@
             return (this._mel === null) ? this._noMelData : this._mel.eval(data);
         };
 
-        static get mel(): IMel {
+        static get mel(): Interfaces.IMel {
             return this._mel = (this._mel !== undefined) ? this._mel : new Mel();
         }
 
-        static set mel(mel: IMel) {
+        static set mel(mel: Interfaces.IMel) {
             this._mel = mel;
         }
     }
